@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.example.WebServicesProject.entities.Category;
 import com.example.WebServicesProject.entities.Order;
 import com.example.WebServicesProject.entities.OrderItem;
+import com.example.WebServicesProject.entities.Payment;
 import com.example.WebServicesProject.entities.Product;
 import com.example.WebServicesProject.entities.User;
 import com.example.WebServicesProject.entities.enums.OrderStatus;
@@ -23,6 +24,8 @@ import com.example.WebServicesProject.repositories.UserRepository;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
+
+    private static final String Payment = null;
 
     @Autowired
     private UserRepository userRepository;
@@ -78,6 +81,11 @@ public class TestConfig implements CommandLineRunner {
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
     }
 
 }
