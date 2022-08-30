@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User implements Serializable{
 
     @Id
@@ -20,7 +22,7 @@ public class User implements Serializable{
 
     public User(){}
 
-    public User(long i, String name, String email, String phone, String password) {
+    public User(Long i, String name, String email, String phone, String password) {
         this.id = i;
         this.name = name;
         this.email = email;
