@@ -25,8 +25,6 @@ import com.example.WebServicesProject.repositories.UserRepository;
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
-    private static final String Payment = null;
-
     @Autowired
     private UserRepository userRepository;
 
